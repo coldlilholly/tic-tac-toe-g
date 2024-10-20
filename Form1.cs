@@ -75,5 +75,70 @@ namespace tic_tac_toe_g
                 }
             }
         }
+        private void checkWin()
+        {
+            string winner = player == 1 ? "Игрок 2" : "Игрок 1"; // Определяем победителя
+
+            if (buttons[0, 0].Text == buttons[0, 1].Text && buttons[0, 1].Text == buttons[0, 2].Text && buttons[0, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[1, 0].Text == buttons[1, 1].Text && buttons[1, 1].Text == buttons[1, 2].Text && buttons[1, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[2, 0].Text == buttons[2, 1].Text && buttons[2, 1].Text == buttons[2, 2].Text && buttons[2, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[0, 0].Text == buttons[1, 0].Text && buttons[1, 0].Text == buttons[2, 0].Text && buttons[0, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[0, 1].Text == buttons[1, 1].Text && buttons[1, 1].Text == buttons[2, 1].Text && buttons[0, 1].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[0, 2].Text == buttons[1, 2].Text && buttons[1, 2].Text == buttons[2, 2].Text && buttons[0, 2].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[0, 0].Text == buttons[1, 1].Text && buttons[1, 1].Text == buttons[2, 2].Text && buttons[0, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+            if (buttons[2, 0].Text == buttons[1, 1].Text && buttons[1, 1].Text == buttons[0, 2].Text && buttons[2, 0].Text != "")
+            {
+                MessageBox.Show($"{winner} победил!");
+                DisableButtons();
+            }
+
+            // Проверка на ничью
+            bool isDraw = true;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (buttons[i, j].Text == "")
+                    {
+                        isDraw = false; // Есть хотя бы одна пустая клетка, значит, это не ничья
+                        break;
+                    }
+                }
+                if (!isDraw) break;
+            }
+
+            if (isDraw)
+            {
+                MessageBox.Show("Ничья!");
+            }
+        }
     }
 }
