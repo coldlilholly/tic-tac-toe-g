@@ -140,5 +140,18 @@ namespace tic_tac_toe_g
                 MessageBox.Show("Ничья!");
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    buttons[i, j].Text = "";
+                    buttons[i, j].Enabled = true;
+                }
+            }
+        }
+
     }
 }
