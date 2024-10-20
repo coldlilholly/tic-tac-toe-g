@@ -47,5 +47,23 @@ namespace tic_tac_toe_g
                 }
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (player)
+            {
+                case 1:
+                    sender.GetType().GetProperty("Text").SetValue(sender, "x");
+                    player = 0;
+                    label1.Text = "Текущий ход: Игрок 2";
+                    break;
+                case 0:
+                    sender.GetType().GetProperty("Text").SetValue(sender, "o");
+                    player = 1;
+                    label1.Text = "Текущий ход: Игрок 1";
+                    break;
+            }
+            sender.GetType().GetProperty("Enabled").SetValue(sender, false);
+            checkWin();
+        }
     }
 }
